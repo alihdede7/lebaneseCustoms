@@ -17,25 +17,29 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     boolean enter = false;
     boolean ex = false;
 
+    //booleans used for the submit button to not crash
+    boolean sub=false;
+
+    //entrance widgets
     Button entrance;
     TextView tv_Entrance;
 
+    //exit widgets
     Button exit;
     TextView tv_Exit;
 
     EditText input_mass;
 
     Button submitButton;
+
+    //widgets that show the results
     TextView tv_result;
     TextView tv_result1;
     TextView tv_result2;
 
-    double days,mass;
-
-
-    int day, month, year, day1, month1, year1;
-    int dayFinal, monthFinal, yearFinal;
-    double df, mf, yf, mDays, weeks, n1Days, n2Days;
+    // variables used in calculations
+    int day, month, year, day1, month1, year1 ,dayFinal, monthFinal, yearFinal;
+    double df, mf, yf, mDays, weeks, n1Days, n2Days, days, mass;
 
     double VAT, storage, total;
 
@@ -49,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         entrance.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View view) {
                 enter = true;
                 Calendar c = Calendar.getInstance();
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 datePickerDialog.show();
             }
         });
+
 
         exit = (Button) findViewById(R.id.exit);
         tv_Exit = (TextView) findViewById(R.id.tv_Exit);
@@ -86,18 +90,33 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         tv_result=(TextView)findViewById(R.id.result);
         tv_result1=(TextView)findViewById(R.id.result1);
         tv_result2=(TextView)findViewById(R.id.result2);
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mass = Integer.valueOf(input_mass.getText().toString());
-                mass=Math.ceil(mass/100)*100;
-                submit();
-                tv_result.setText(String.valueOf(storage));
-                tv_result1.setText(String.valueOf(VAT));
-                tv_result2.setText(String.valueOf(submit()));
-//                showToast(String.valueOf(submit()));
+                //condition to not let the app crash
+                if (sub==false){
+                    showToast("Enter the Dates!!");
+                    return;
+                }
+                else{
+                    mass = Integer.valueOf(input_mass.getText().toString());
+                    mass=Math.ceil(mass/100)*100;
+                    if (submit()<0)
+                    {
+                        tv_result.setText("INVALID");
+                        tv_result1.setText("INVALID");
+                        tv_result2.setText("INVALID");
+                        showToast("Change the Dates!!");
+                    }
+                    else {
+                        tv_result.setText(String.valueOf((int)storage));
+                        tv_result1.setText(String.valueOf((int)VAT));
+                        tv_result2.setText(String.valueOf(submit()));
+                    }
+                }
+                }
 
-            }
         });
     }
 
@@ -120,16 +139,20 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             month1=monthFinal;
             year1=yearFinal;
         }
-
+        sub=true;
         enter = false;
         ex = false;
     }
 
+    //the method that does all the calculations
     public int submit() {
         yf = year1 - year;
         mf = month1 - month;
         df = day1 - day;
 
+        if(df<0 || mf<0 ||yf<0){
+            return (int) (total=-1);
+        }
         days = yf * 365 + mf * 30 + df;
         mDays = days - 4;
         weeks = (int)Math.ceil(mDays / 7);

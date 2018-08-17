@@ -9,6 +9,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:orientation="vertical"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
@@ -35,11 +36,15 @@
                 android:id="@+id/entrance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button"
+                android:textColor="#ffff"
                 android:layout_weight="0"
                 android:text="تاريخ الإدخال"
                 android:textSize="30sp" />
 
         </LinearLayout>
+
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -61,6 +66,9 @@
                 android:id="@+id/exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_button"
+                android:textColor="#ffff"
                 android:layout_alignParentRight="true"
                 android:text="تاريخ الإخراج"
                 android:textSize="30sp" />
@@ -78,8 +86,9 @@
                 android:id="@+id/input_mass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:hint="ادخل الوزن"
+                android:hint="  (kg)"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
 
@@ -87,27 +96,28 @@
                 android:id="@+id/mass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:textColor="#000"
                 android:layout_weight="1"
                 android:inputType="textPersonName"
-                android:text="الوزن القائم"
+                android:text="الوزن القائم "
                 android:textSize="30sp" />
 
 
         </LinearLayout>
 
 
+
         <Button
             android:id="@+id/submitButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="احتسب" />
-
-        <TextView
-            android:id="@+id/emptyMargin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:textSize="30sp" />
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_button2"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="26dp"
+            android:text="إحتسب" />
 
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -120,7 +130,9 @@
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="3"
+                android:hint="  (LL) "
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
 
@@ -128,7 +140,9 @@
                 android:id="@+id/total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:textColorHint="#000"
                 android:hint="رسم الخزن"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
@@ -144,9 +158,11 @@
 
             <TextView
                 android:id="@+id/total1"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="4"
+                android:textColorHint="#000"
                 android:hint="VAT"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
@@ -156,10 +172,11 @@
                 android:id="@+id/result1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:hint="  (LL)"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
-
 
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -171,7 +188,9 @@
                 android:id="@+id/total2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_margin="5dp"
+                android:layout_weight="3"
+                android:textColorHint="#000"
                 android:hint="Total"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
@@ -181,21 +200,13 @@
                 android:id="@+id/result2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:hint="  (LL)"
                 android:inputType="textPersonName"
                 android:textSize="30sp" />
 
-
-
-
-
-
         </LinearLayout>
-
-
-
-
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
