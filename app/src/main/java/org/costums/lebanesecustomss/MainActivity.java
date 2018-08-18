@@ -2,6 +2,7 @@ package org.costums.lebanesecustomss;
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             }
         });
         input_mass = (EditText) findViewById(R.id.input_mass);
+        input_mass.setInputType(InputType.TYPE_CLASS_NUMBER);
         submitButton = (Button) findViewById(R.id.submitButton);
         tv_result=(TextView)findViewById(R.id.result);
         tv_result1=(TextView)findViewById(R.id.result1);
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 else{
                     mass = Integer.valueOf(input_mass.getText().toString());
                     mass=Math.ceil(mass/100)*100;
-                    if (submit()<0)
+                    if (submit()==-1)
                     {
                         tv_result.setText("INVALID");
                         tv_result1.setText("INVALID");
@@ -150,9 +152,11 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         mf = month1 - month;
         df = day1 - day;
 
-        if(df<0 || mf<0 ||yf<0){
+        if((yf<0 || mf<0)||(((yf==0)&&(mf==0))&&df<0)){
             return (int) (total=-1);
         }
+
+
         days = yf * 365 + mf * 30 + df;
         mDays = days - 4;
         weeks = (int)Math.ceil(mDays / 7);
