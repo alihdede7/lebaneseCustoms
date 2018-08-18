@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     boolean ex = false;
 
     //booleans used for the submit button to not crash
+
     boolean sub=false;
 
     //entrance widgets
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     TextView tv_Exit;
 
     EditText input_mass;
-
     Button submitButton;
 
     //widgets that show the results
@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
     // variables used in calculations
     int day, month, year, day1, month1, year1 ,dayFinal, monthFinal, yearFinal;
-    double df, mf, yf, mDays, weeks, n1Days, n2Days, days, mass;
+    double df, mf, yf, mDays, weeks, n1Days, n2Days, days;
+    double mass=-1;
 
     double VAT, storage, total;
 
@@ -60,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 year = c.get(Calendar.YEAR);
                 month = c.get(Calendar.MONTH);
                 day = c.get(Calendar.DAY_OF_MONTH);
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, MainActivity.this,
                         year, month, day);
                 datePickerDialog.show();
@@ -97,30 +97,39 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             @Override
             public void onClick(View view) {
                 //condition to not let the app crash
-                if (sub==false){
-                    showToast("Enter the Dates!!");
+                try {
+                    mass=Integer.valueOf(input_mass.getText().toString());
+                }
+                catch(NumberFormatException ex){
+                    showToast("fill the fields!!");
                     return;
                 }
-                else{
+                if (sub == false) {
+                    showToast("fill the fields!!");
+                    return;
+                }
                     mass = Integer.valueOf(input_mass.getText().toString());
-                    mass=Math.ceil(mass/100)*100;
-                    if (submit()==-1)
-                    {
+                    mass = Math.ceil(mass / 100) * 100;
+
+                    if (submit() == -1) {
                         tv_result.setText("INVALID");
                         tv_result1.setText("INVALID");
                         tv_result2.setText("INVALID");
                         showToast("Change the Dates!!");
-                    }
-                    else {
-                        tv_result.setText(String.valueOf((int)storage));
-                        tv_result1.setText(String.valueOf((int)VAT));
+                    } else {
+                        tv_result.setText(String.valueOf((int) storage));
+                        tv_result1.setText(String.valueOf((int) VAT));
                         tv_result2.setText(String.valueOf(submit()));
+
                     }
-                }
-                }
+
+            }
+
+
 
         });
-    }
+}
+
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {

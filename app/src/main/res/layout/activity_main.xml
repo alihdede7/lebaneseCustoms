@@ -27,9 +27,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="10dp"
                 android:editable="false"
                 android:inputType="textPersonName"
-                android:textSize="30sp"
+                android:textSize="@dimen/_30sdp"
                 tools:ignore="Deprecated" />
 
             <Button
@@ -40,8 +41,8 @@
                 android:background="@drawable/rounded_button"
                 android:textColor="#ffff"
                 android:layout_weight="0"
-                android:text="تاريخ الإدخال"
-                android:textSize="30sp" />
+                android:text=" تاريخ الإدخال "
+                android:textSize="@dimen/_22sdp" />
 
         </LinearLayout>
 
@@ -57,21 +58,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_margin="10dp"
                 android:editable="false"
                 android:inputType="textPersonName"
-                android:textSize="30sp"
+                android:textSize="@dimen/_30sdp"
                 tools:ignore="Deprecated" />
 
             <Button
                 android:id="@+id/exit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0"
                 android:layout_margin="10dp"
                 android:background="@drawable/rounded_button"
                 android:textColor="#ffff"
                 android:layout_alignParentRight="true"
-                android:text="تاريخ الإخراج"
-                android:textSize="30sp" />
+                android:text=" تاريخ الإخراج "
+                android:textSize="@dimen/_22sdp" />
 
 
         </LinearLayout>
@@ -90,7 +93,7 @@
                 android:layout_weight="1"
                 android:hint="  (kg)"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
             <TextView
                 android:id="@+id/mass"
@@ -101,7 +104,7 @@
                 android:layout_weight="1"
                 android:inputType="textPersonName"
                 android:text="الوزن القائم "
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
 
         </LinearLayout>
@@ -116,7 +119,7 @@
             android:background="@drawable/rounded_button2"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:textSize="26dp"
+            android:textSize="@dimen/_30sdp"
             android:text="إحتسب" />
 
 
@@ -134,7 +137,7 @@
                 android:layout_weight="3"
                 android:hint="  (LL) "
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
             <TextView
                 android:id="@+id/total"
@@ -145,7 +148,7 @@
                 android:textColorHint="#000"
                 android:hint="رسم الخزن"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
 
         </LinearLayout>
@@ -165,7 +168,7 @@
                 android:textColorHint="#000"
                 android:hint="VAT"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
 
             <TextView
@@ -176,7 +179,7 @@
                 android:layout_weight="1"
                 android:hint="  (LL)"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -193,7 +196,7 @@
                 android:textColorHint="#000"
                 android:hint="Total"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
 
             <TextView
@@ -203,8 +206,10 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:hint="  (LL)"
+                android:textStyle="bold"
+                android:textColor="#000"
                 android:inputType="textPersonName"
-                android:textSize="30sp" />
+                android:textSize="@dimen/_30sdp" />
 
         </LinearLayout>
     </LinearLayout>
